@@ -1,6 +1,6 @@
 # data/
 
-This folder holds the raw tick data downloaded from the provided Google Drive link. It is not tracked in git.
+This folder holds the raw tick data downloaded from the provided Google Drive link. It is not tracked in git. (File size and Privacy concerns)
 
 ## Expected structure
 

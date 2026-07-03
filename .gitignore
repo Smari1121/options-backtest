@@ -1,8 +1,8 @@
 # Data (too large for git)
 data/allData/
 
-# Output - exclude the large second-by-second PnL snapshots (~40MB each)
-# PNGs and trade CSVs are tracked so evaluators can see results directly
+# Output - excluded the large second-by-second PnL snapshots (~40MB each)
+# PNGs and trade CSVs are tracked so one can see results directly
 output/*_pnl.csv
 
 # Python

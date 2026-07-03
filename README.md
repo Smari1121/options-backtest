@@ -18,14 +18,15 @@ The backtest engine is strategy-agnostic. It only passes market data in and exec
 
 ```
 .
-├── config.py        # Paths and underlier list
-├── loader.py        # CSV parsing, expiry detection, price grid construction
-├── strategy.py      # Strategy base class + StraddleStrategy implementation
-├── portfolio.py     # Position tracking, PnL accounting, trade log
-├── backtest.py      # Engine that drives the strategy over the data
-├── results.py       # CSV export and console summary
-├── plots.py         # 8 visualization charts
-├── run.py           # Entry point
+├── src/             # Core logic
+│   ├── config.py    # Paths and underlier list
+│   ├── loader.py    # CSV parsing, price grid construction
+│   ├── strategy.py  # Strategy base class + StraddleStrategy
+│   ├── portfolio.py # Position tracking, trade log
+│   ├── backtest.py  # Backtest engine
+│   ├── results.py   # CSV export and console summary
+│   └── plots.py     # Visualization charts
+├── run.py           # Entry point (runs from root)
 ├── requirements.txt
 ├── data/            # Raw tick data goes here (see data/README.md)
 └── output/          # Generated CSVs and plots land here (see output/README.md)
@@ -47,7 +48,7 @@ The raw tick data is not included in this repo (~2 GB unzipped). See [data/READM
 2. Unzip the archive to get a folder called `allData`.
 3. Place `allData` inside `data/` so the path is `data/allData/NSE_20221101/...`.
 
-The code resolves all paths relative to `config.py`, so nothing is hardcoded.
+The code resolves all paths relative to `src/config.py`, so nothing is hardcoded.
 
 ## Running
 
@@ -80,9 +81,11 @@ For a full description of every output file and plot, see [output/README.md](out
 
 ## Plugging in a new strategy
 
-Subclass `Strategy` from `strategy.py` and implement three methods:
+Subclass `Strategy` from `src.strategy` and implement three methods:
 
 ```python
+from src.strategy import Strategy
+
 class MyStrategy(Strategy):
     def init_day(self, date_str, underlier, expiry):
         pass
@@ -98,6 +101,9 @@ class MyStrategy(Strategy):
 Then swap it into `run.py`:
 
 ```python
+from src.config import DATA_DIR, UNDERLIERS
+from src.backtest import BacktestEngine
+
 strategy = MyStrategy()
 engine = BacktestEngine(strategy, DATA_DIR, UNDERLIERS)
 ```

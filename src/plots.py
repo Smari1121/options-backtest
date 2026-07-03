@@ -223,7 +223,7 @@ def _strategy_action(pnl_data, output_dir, data_dir):
     day_df = df[df["date"] == sample_day].copy()
     day_df["strike"] = day_df["positions"].apply(_parse_strike)
 
-    from loader import read_ticks, FUTURES_FOLDER
+    from .loader import read_ticks, FUTURES_FOLDER
     date_str = sample_day.strftime("%Y%m%d")
     fut_file = (
         Path(data_dir) / f"NSE_{date_str}" / FUTURES_FOLDER

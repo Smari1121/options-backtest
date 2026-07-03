@@ -7,7 +7,7 @@ can be moved around without breaking anything.
 
 from pathlib import Path
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent.parent
 DATA_DIR = BASE_DIR / "data" / "allData"
 OUTPUT_DIR = BASE_DIR / "output"
 

@@ -48,7 +48,7 @@ NIFTY  221103  17500  CE  .csv
   underlier
 ```
 
-The code in `loader.py` parses this automatically.
+The code in `src/loader.py` parses this automatically.
 
 ## Futures files
 

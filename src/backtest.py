@@ -8,8 +8,8 @@ and executes the orders that come back.
 """
 
 import numpy as np
-from loader import load_day_data, get_trading_dates, build_price_grid
-from portfolio import Portfolio
+from .loader import load_day_data, get_trading_dates, build_price_grid
+from .portfolio import Portfolio
 
 
 class BacktestEngine:

@@ -1,10 +1,10 @@
 """Entry point for the backtest pipeline."""
 
-from config import DATA_DIR, OUTPUT_DIR, UNDERLIERS
-from strategy import StraddleStrategy
-from backtest import BacktestEngine
-from results import export_results
-from plots import generate_plots
+from src.config import DATA_DIR, OUTPUT_DIR, UNDERLIERS
+from src.strategy import StraddleStrategy
+from src.backtest import BacktestEngine
+from src.results import export_results
+from src.plots import generate_plots
 
 
 def main():
